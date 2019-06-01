@@ -1,14 +1,15 @@
-def my_collection(languages)
-  languages = ['ruby', 'javascript', 'python', 'objective-c']
-  languages.collect {|lang| lang.upcase}
-   puts languages 
+
+def my_collect(array)
+  i = 0
+  result = []
+  while i < array.length
+    result.push(yield array[i])
+      i += 1
+  end
+  result
 end
 
-def my_collection(students)
-  empty_array = []
-  students = ['Tim Jones', 'Tom Smith', 'Sophie Johnson', 'Antoin Miller']
-    students.collect {|student| names}
-    yield(my_collection(students))
-    students.split(" ") [0]
-    puts students
+array = ["Tim Jones", "Tom Smith", "Jim Campagno"]
+my_collect(array) do |name|
+  name.split(" ").first
 end
